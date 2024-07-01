@@ -1,12 +1,12 @@
-package SimpleJanken;
+package Lesson4_1.SimpleJanken;
 
 /*
-*クラス名：W3_2_Player
-*概要：ジャンケンのプレーヤーを表すクラス
+*クラス名：Murata
+*概要：名前が村田のプレイヤークラス
 *作成者：N.Kimoto
-*作成日：2024/06/27
+*作成日：2024/07/01
 */
-public class Player {
+public class Murata {
 	
 	// グーを表す定数を宣言
 	public static final int HAND_STONE = 0;
@@ -30,13 +30,13 @@ public class Player {
 	private int winCount = 0;
 	
 	/*
-	*コンストラクタ名：W3_2_Player
+	*コンストラクタ名：Murata
 	*概要：プレイヤーの名前を初期化
 	*引数：名前(String型)
 	*作成者：N.Kimoto
 	*作成日：2024/06/27
 	*/
-	public Player(String playerName) {
+	public Murata(String playerName) {
 		// プレイヤーの名前を引数の名前で初期化
 		this.playerName = playerName;
 	}

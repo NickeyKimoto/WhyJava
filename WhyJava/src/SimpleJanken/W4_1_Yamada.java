@@ -1,12 +1,6 @@
 package SimpleJanken;
 
-/*
-*クラス名：W3_2_Player
-*概要：ジャンケンのプレーヤーを表すクラス
-*作成者：N.Kimoto
-*作成日：2024/06/27
-*/
-public class Player {
+public class W4_1_Yamada {
 	
 	// グーを表す定数を宣言
 	public static final int HAND_STONE = 0;
@@ -30,13 +24,13 @@ public class Player {
 	private int winCount = 0;
 	
 	/*
-	*コンストラクタ名：W3_2_Player
+	*コンストラクタ名：W4_1_Yamada
 	*概要：プレイヤーの名前を初期化
 	*引数：名前(String型)
 	*作成者：N.Kimoto
 	*作成日：2024/06/27
 	*/
-	public Player(String playerName) {
+	public W4_1_Yamada(String playerName) {
 		// プレイヤーの名前を引数の名前で初期化
 		this.playerName = playerName;
 	}
@@ -123,5 +117,5 @@ public void notifyResult(boolean playerResult) {
 		// 自分の名前を返却
 		return playerName;
 	}
-	
+
 }

@@ -1,10 +1,10 @@
-package SimpleJanken;
+package Lesson5_1.SimpleJanken;
 
 /*
-*クラス名：W3_2_Player
+*クラス名：Player
 *概要：ジャンケンのプレーヤーを表すクラス
 *作成者：N.Kimoto
-*作成日：2024/06/27
+*作成日：2024/06/28
 */
 public class Player {
 	
@@ -28,9 +28,11 @@ public class Player {
 	private String playerName;
 	// プレイヤーの勝利数を表すフィールドを宣言
 	private int winCount = 0;
+	// 戦略を表すフィールドを宣言
+	private Tactics jankenTactics;
 	
 	/*
-	*コンストラクタ名：W3_2_Player
+	*コンストラクタ名：Player
 	*概要：プレイヤーの名前を初期化
 	*引数：名前(String型)
 	*作成者：N.Kimoto
@@ -43,6 +45,19 @@ public class Player {
 	
 	// メソッド
 	/*
+	*関数名：setTactics
+	*概要：プレイヤーに戦略を伝える
+	*引数：戦略(Tactics型)
+	*戻り値：なし
+	*作成者：N.Kimoto
+	*作成日：2024/06/28
+	*/
+	public void setTactics(Tactics jankenTactics) {
+		// プレイヤーに戦略を伝える
+		this.jankenTactics = jankenTactics;
+	}
+	
+	/*
 	*関数名：showHand
 	*概要：ジャンケンの手を出す
 	*引数：なし
@@ -52,32 +67,7 @@ public class Player {
 	*/
 	public int showHand() {
 		// プレイヤーの手を表す変数を宣言
-		int playerHand = 0;
-		// 乱数を格納するための変数を宣言
-		double randomValue = 0;
-		
-		// 0以上出す手の数未満の少数として乱数を得る
-		randomValue = Math.random() * RANDOM_RANGE;
-		
-		// 乱数が0.0以上1.0未満の場合
-		if (randomValue < STONE_RANGE) {
-			// プレイヤーの手をグーにする
-			playerHand = HAND_STONE;
-			// プレイヤーの手を表示する
-			System.out.print("グー");
-		// 乱数が1.0以上2.0未満の場合
-		} else if (randomValue < SCISSORS_RANGE) {
-			// プレイヤーの手をチョキにする
-			playerHand = HAND_SCISSORS;
-			// プレイヤーの手を表示する
-			System.out.print("チョキ");
-		// 乱数が2.0以上3.0未満の場合
-		} else if (randomValue < PAPER_RANGE) {
-			// プレイヤーの手をパーにする
-			playerHand = HAND_PAPER;
-			// プレイヤーの手を表示する
-			System.out.print("パー");
-		}
+		int playerHand = jankenTactics.readTactics();
 		// 出す手を返却
 		return playerHand;
 	}
@@ -123,5 +113,5 @@ public void notifyResult(boolean playerResult) {
 		// 自分の名前を返却
 		return playerName;
 	}
-	
+
 }

@@ -1,7 +1,7 @@
-package SimpleJanken;
+package Lesson4_1.SimpleJanken;
 
 /*
-*クラス名：W3_2_Player
+*クラス名：Player
 *概要：ジャンケンのプレーヤーを表すクラス
 *作成者：N.Kimoto
 *作成日：2024/06/27

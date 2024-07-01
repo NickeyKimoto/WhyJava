@@ -1,7 +1,7 @@
-package SimpleJanken;
+package Lesson3_3.SimpleJanken;
 
 /*
-*クラス名：W3_2_Player
+*クラス名：Player
 *概要：ジャンケンのプレーヤーを表すクラス
 *作成者：N.Kimoto
 *作成日：2024/06/27
@@ -30,7 +30,7 @@ public class Player {
 	private int winCount = 0;
 	
 	/*
-	*コンストラクタ名：W3_2_Player
+	*コンストラクタ名：Player
 	*概要：プレイヤーの名前を初期化
 	*引数：名前(String型)
 	*作成者：N.Kimoto
