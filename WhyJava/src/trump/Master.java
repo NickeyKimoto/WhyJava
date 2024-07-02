@@ -3,10 +3,6 @@ package trump;
 //ArrayListクラスをインポート
 import java.util.ArrayList;
 
-import Lesson7_2.Card;
-import Lesson7_2.Hand;
-import Lesson7_2.Player;
-
 /*
 *クラス名：Master
 *概要：進行役を表すクラス
@@ -40,7 +36,7 @@ public class Master {
 		// 各プレイヤーに順番にカードを配る
 		for(int i = 0; i < numberOfCards; i++) {
 			// カードから1枚引く
-			Card drawnCard = playingCards.pickCard();
+			Card drawnCard = playingCards.pickCard(0);
 			// 各プレイヤーに順番にカードを配る
 			Player gamePlayer = (Player) gamePlayers.get(i % numberOfPlayers);
 			// それぞれのプレイヤーは配られたカードを手札に加える

@@ -1,9 +1,5 @@
 package trump;
 
-import Lesson7_2.Card;
-import Lesson7_2.Master;
-import Lesson7_2.Table;
-
 /*
 *クラス名：Player
 *概要：プレイヤーを表す抽象クラス
