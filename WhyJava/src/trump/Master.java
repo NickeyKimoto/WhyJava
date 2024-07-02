@@ -1,13 +1,17 @@
-package Lesson7_2;
+package trump;
 
-// ArrayListクラスをインポート
+//ArrayListクラスをインポート
 import java.util.ArrayList;
+
+import Lesson7_2.Card;
+import Lesson7_2.Hand;
+import Lesson7_2.Player;
 
 /*
 *クラス名：Master
-*概要：進行役の情報を管理するクラス
+*概要：進行役を表すクラス
 *作成者：N.Kimoto
-*作成日：2024/07/01
+*作成日：2024/07/02
 */
 public class Master {
 	
@@ -54,8 +58,8 @@ public class Master {
 	*作成日：2024/07/01
 	*/
 	public void startGame() {
-		// ババ抜きを開始すると宣言する
-		System.out.println("【ババ抜きを開始します】");
+		// ゲームを開始すると宣言する
+		System.out.println("【ゲームを開始します】");
 		
 		// プレイヤーの最低人数の基準を表す定数を宣言
 		final int LOW_STANDARD_PLAYER_NUMBER = 1;
@@ -80,7 +84,7 @@ public class Master {
 		}
 		
 		// プレイヤーが上がって残り1名になるとループを抜ける
-		System.out.println("【ババ抜きを終了しました】");
+		System.out.println("【ゲームを終了しました】");
 	}
 	
 	/*
@@ -89,24 +93,15 @@ public class Master {
 	*引数：勝者(Player型)
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/07/01
+	*作成日：2024/07/02
 	*/
 	public void declareWin(Player gameWinner) {
 		// 上がったプレイヤーを表示
 		System.out.println(gameWinner + "さんが上がりました！");
 		
 		// 上がったプレイヤーをリストから外す
-		gamePlayers.remove(gamePlayers.indexOf(gameWinner));
-		
-		// 敗者が決まる基準となる定数を宣言
-		final int STANDARD_DECISION_LOSER = 1;
-		// 残りプレイヤーが1人になった場合
-		if (gamePlayers.size() == STANDARD_DECISION_LOSER) {
-			// ゲームの敗者を初期化
-			Player gameLoser = (Player) gamePlayers.get(0);
-			// 敗者を表示
-			System.out.println(gameLoser + "さんの負けです！");
-		}
+		deregisterPlayer(gameWinner);
+
 	}
 	
 	/*
@@ -115,11 +110,34 @@ public class Master {
 	*引数：参加希望者(Player型)
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/07/01
+	*作成日：2024/07/02
 	*/
 	public void registerPlayer(Player gameParticipants) {
 		// リストに参加者を追加する
 		gamePlayers.add(gameParticipants);
+	}
+	
+	/*
+	*関数名：registerPlayer
+	*概要：プレイヤーを登録から削除する
+	*引数：削除するプレイヤー(Player型)
+	*戻り値：なし
+	*作成者：N.Kimoto
+	*作成日：2024/07/02
+	*/
+	public void deregisterPlayer(Player gameParticipants) {
+		// プレイヤーをリストから外す
+        gamePlayers.remove(gamePlayers.indexOf(gameParticipants));
+        
+		// 敗者が決まる基準となる定数を宣言
+		final int STANDARD_DECISION_LOSER = 1;
+		// 残りプレイヤーが1人になった場合
+        if (gamePlayers.size() == STANDARD_DECISION_LOSER) {
+        	// ゲームの敗者を初期化
+            Player loser = (Player)gamePlayers.get(0);
+         // 敗者を表示
+            System.out.println("  " + loser + "さんの負けです！");
+        }
 	}
 
 }

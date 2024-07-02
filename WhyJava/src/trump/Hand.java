@@ -1,11 +1,13 @@
-package Lesson7_2;
+package trump;
 
-// ArrayListクラスをインポート
+//ArrayListクラスをインポート
 import java.util.ArrayList;
+
+import Lesson7_2.Card;
 
 /*
 *クラス名：Hand
-*概要：ババ抜きの手札を管理するクラス
+*概要：手札を表すクラス
 *作成者：N.Kimoto
 *作成日：2024/07/02
 */
@@ -28,16 +30,45 @@ public class Hand {
 	}
 	
 	/*
+	*関数名：lookCard
+	*概要：カードを見る
+	*引数：カードの位置(int型)
+	*戻り値：指定された位置のカード(Card型)
+	*作成者：N.Kimoto
+	*作成日：2024/07/02
+	*/
+	public Card lookCard(int cardPosition) {
+		// 指定された位置のカードを初期化
+		Card lookingCard = null;
+
+		// 指定した位置が有効範囲内の場合
+		if ((0 <= cardPosition) && (cardPosition < handCards.size())) {
+			// 指定された位置のカードを取得
+			lookingCard = (Card)handCards.get(cardPosition);
+		}
+		
+		// 指定された位置のカードを返却
+		return lookingCard;
+	}
+	
+	/*
 	*関数名：pickCard
 	*概要：カードを引く
-	*引数：なし
+	*引数：カードの位置(int型)
 	*戻り値：引いたカード(Card型)
 	*作成者：N.Kimoto
 	*作成日：2024/07/02
 	*/
-	public Card pickCard() {
+	public Card pickCard(int cardPosition) {
 		// 引いたカードを初期化
-		Card pickedCard = (Card) handCards.remove(0);
+		Card pickedCard = null;
+
+		// 指定した位置が有効範囲内の場合
+		if ((0 <= cardPosition) && (cardPosition < handCards.size())) {
+			// 指定した位置からカードを引く
+			pickedCard = (Card)handCards.remove(cardPosition);
+		}
+
 		// 引いたカードを返却
 		return pickedCard;
 	}
@@ -83,59 +114,6 @@ public class Hand {
 	public int getNumberOfCards() {
 		// 枚数を返却
 		return handCards.size();
-	}
-	
-	/*
-	*関数名：findSameNumberCard
-	*概要：数字が同じカードを探す
-	*引数：なし
-	*戻り値：数字が同じカード(Card型配列)
-	*作成者：N.Kimoto
-	*作成日：2024/07/02
-	*/
-	public Card[] findSameNumberCard() {
-		// 手札の枚数を初期化
-		int numberOfCards = handCards.size();
-		// 返却するカード型配列を初期化
-		Card[] sameCards = null;
-		
-		// 手札にカードが1枚もない場合は何もしない
-		if (numberOfCards > 0) {
-			// 手札の最後のカードの位置に調整する定数を宣言
-			final int ADJUST_CARD_LAST = -1;
-			// 手札の最後のカードの位置を初期化
-			int lastIndex = numberOfCards + ADJUST_CARD_LAST;
-			// 最後に追加されたカードを手札の最後尾に追加
-			Card lastAddedCard = (Card) handCards.get(lastIndex);
-			
-			// 最後に追加されたカードの数字を取得する
-			int lastAddedCardNumber = lastAddedCard.getCardNumber();
-			
-			// 手札のカードの数字を調査
-			for (int i = 0; i < lastIndex; i++) {
-				// 1枚ずつ調べる
-				Card playingCard = (Card) handCards.get(i);
-				
-				// そのカードの数字が最後に追加されたカードの数字と一致した場合
-				if (playingCard.getCardNumber() == lastAddedCardNumber) {
-					// 返却する配列の要素数を表す定数を宣言
-					final int ELEMENT_COUNT = 2;
-					// 配列のインデックス番号を表す数字を格納した配列を宣言
-					final int[] INDEX_NUMBER = {0, 1};
-					// 返却する配列の要素数を変更
-					sameCards = new Card[ELEMENT_COUNT];
-					// 最後に追加されたカードを返却する配列に追加
-					sameCards[INDEX_NUMBER[0]] = (Card) handCards.remove(lastIndex);
-					// 同じ数字を持つカードを返却する配列に追加
-					sameCards[INDEX_NUMBER[1]] = (Card) handCards.remove(i);
-					// 調査を終了する
-					break;
-					
-				}
-			}
-		}
-		// 同じ数字のカードをを返却
-		return sameCards;
 	}
 	
 	/*
