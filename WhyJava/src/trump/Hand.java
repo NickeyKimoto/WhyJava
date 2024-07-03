@@ -3,8 +3,6 @@ package trump;
 //ArrayListクラスをインポート
 import java.util.ArrayList;
 
-import Lesson7_2.Card;
-
 /*
 *クラス名：Hand
 *概要：手札を表すクラス
@@ -14,7 +12,7 @@ import Lesson7_2.Card;
 public class Hand {
 	
 	// 手札にあるカードを保持するためのリストを表すフィールドを宣言
-	private ArrayList handCards = new ArrayList();
+	private ArrayList<Card> handCards = new ArrayList<Card>();
 	
 	/*
 	*関数名：addCard

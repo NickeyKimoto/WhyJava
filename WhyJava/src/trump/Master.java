@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Master {
 	
 	// ゲームに参加する参加者を保持するためのリストを表すフィールドを宣言
-	private ArrayList gamePlayers = new ArrayList();
+	private ArrayList<Player> gamePlayers = new ArrayList<Player>();
 	
 	/*
 	*関数名：prepareGame
