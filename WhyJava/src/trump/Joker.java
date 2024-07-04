@@ -17,8 +17,10 @@ public class Joker extends Card {
 	*作成日：2024/07/02
 	*/
 	public Joker() {
+		
 		// フィールドを初期化する(初期値はそれぞれ0)
 		super(0, 0);
+		
 	}
 	
 	/*
@@ -30,8 +32,10 @@ public class Joker extends Card {
 	*作成日：2024/07/02
 	*/
 	public void setCardNumber(int cardNumber) {
+		
 		// 数字を変更する
 		this.cardNumber = cardNumber;
+		
 	}
 	
 	/*
@@ -43,8 +47,10 @@ public class Joker extends Card {
 	*作成日：2024/07/02
 	*/
 	public void setCardSuit(int cardSuit) {
+		
 		// スートを変更する
 		this.cardSuit = cardSuit;
+		
 	}
 	
 	/*
@@ -56,8 +62,10 @@ public class Joker extends Card {
 	*作成日：2024/07/02
 	*/
 	public String toString() {
+		
 		// JKとして返却
 		return "JK";
+		
 	}	
 
 }

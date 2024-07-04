@@ -28,6 +28,7 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public Player(String myName, Master gameMaster, Table gameTable, Rule gameRule) {
+		
 		// 名前を表すフィールドを初期化
 		this.myName = myName;
 		// 進行役を表すフィールドを初期化
@@ -36,6 +37,7 @@ public abstract class Player {
 		this.gameTable = gameTable;
 		// ルールを表すルールを初期化
 		this.gameRule = gameRule;
+		
 	}
 	
 	/*
@@ -57,8 +59,10 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public void receiveCard(Card playingCard) {
+		
 		// 引いたカードを自分の手札に加える
 		myHand.addCard(playingCard);
+		
 	}
 	
 	/*
@@ -70,8 +74,10 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public String toString() {
+		
 		// プレイヤーの名前を返す
 		return myName;
+		
 	}
 
 }

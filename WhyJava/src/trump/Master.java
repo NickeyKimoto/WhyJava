@@ -23,6 +23,7 @@ public class Master {
 	*作成日：2024/07/01
 	*/
 	public void prepareGame(Hand playingCards) {
+		
 		// カードを配ると宣言する
 		System.out.println("【カードを配ります】");
 		
@@ -35,6 +36,7 @@ public class Master {
 		
 		// 各プレイヤーに順番にカードを配る
 		for(int i = 0; i < numberOfCards; i++) {
+			
 			// カードから1枚引く
 			Card drawnCard = playingCards.pickCard(0);
 			// 各プレイヤーに順番にカードを配る
@@ -43,6 +45,7 @@ public class Master {
 			gamePlayer.receiveCard(drawnCard);
 			
 		}
+		
 	}
 	
 	/*
@@ -54,6 +57,7 @@ public class Master {
 	*作成日：2024/07/01
 	*/
 	public void startGame() {
+		
 		// ゲームを開始すると宣言する
 		System.out.println("【ゲームを開始します】");
 		
@@ -61,6 +65,7 @@ public class Master {
 		final int LOW_STANDARD_PLAYER_NUMBER = 1;
 		// プレイヤーの人数を取得する
 		for(int i = 0; gamePlayers.size() > LOW_STANDARD_PLAYER_NUMBER; i++) {
+			
 			// プレイヤーの順番を初期化する
 			int playerIndex = i % gamePlayers.size();
 			// 次のプレイヤーの順番に調整する定数を宣言
@@ -77,10 +82,12 @@ public class Master {
 			System.out.println("\n" + nominatePlayer + "さんの番です");
 			// プレイヤーを指名する
 			nominatePlayer.nominatePlayer(nextNominatePlayer);
+			
 		}
 		
 		// プレイヤーが上がって残り1名になるとループを抜ける
 		System.out.println("【ゲームを終了しました】");
+		
 	}
 	
 	/*
@@ -92,9 +99,9 @@ public class Master {
 	*作成日：2024/07/02
 	*/
 	public void declareWin(Player gameWinner) {
+		
 		// 上がったプレイヤーを表示
 		System.out.println(gameWinner + "さんが上がりました！");
-		
 		// 上がったプレイヤーをリストから外す
 		deregisterPlayer(gameWinner);
 
@@ -109,8 +116,10 @@ public class Master {
 	*作成日：2024/07/02
 	*/
 	public void registerPlayer(Player gameParticipants) {
+		
 		// リストに参加者を追加する
 		gamePlayers.add(gameParticipants);
+		
 	}
 	
 	/*
@@ -122,18 +131,22 @@ public class Master {
 	*作成日：2024/07/02
 	*/
 	public void deregisterPlayer(Player gameParticipants) {
+		
 		// プレイヤーをリストから外す
-        gamePlayers.remove(gamePlayers.indexOf(gameParticipants));
+		gamePlayers.remove(gamePlayers.indexOf(gameParticipants));
         
 		// 敗者が決まる基準となる定数を宣言
 		final int STANDARD_DECISION_LOSER = 1;
 		// 残りプレイヤーが1人になった場合
         if (gamePlayers.size() == STANDARD_DECISION_LOSER) {
+        	
         	// ゲームの敗者を初期化
-            Player loser = (Player)gamePlayers.get(0);
-         // 敗者を表示
-            System.out.println("  " + loser + "さんの負けです！");
+        	Player loser = (Player)gamePlayers.get(0);
+        	// 敗者を表示
+        	System.out.println("  " + loser + "さんの負けです！");
+        	
         }
+        
 	}
 
 }
