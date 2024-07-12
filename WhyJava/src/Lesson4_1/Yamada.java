@@ -1,12 +1,12 @@
-package Lesson3_2.SimpleJanken;
+package Lesson4_1;
 
 /*
-*クラス名：Player
-*概要：ジャンケンのプレーヤーを表すクラス
+*クラス名：Yamada
+*概要：ジャンケンのプレーヤー山田さんを表すクラス
 *作成者：N.Kimoto
 *作成日：2024/06/27
 */
-public class Player {
+public class Yamada {
 	
 	// グーを表す定数を宣言
 	public static final int HAND_STONE = 0;
@@ -23,13 +23,11 @@ public class Player {
 	// パーの範囲を表す変数を宣言
 	public static final double PAPER_RANGE = 3.0;
 	
-	// フィールド
 	// プレイヤーの名前を表すフィールドを宣言
 	private String playerName;
 	// プレイヤーの勝利数を表すフィールドを宣言
 	private int winCount = 0;
 	
-	// メソッド
 	/*
 	*関数名：showHand
 	*概要：ジャンケンの手を出す
@@ -49,23 +47,30 @@ public class Player {
 		
 		// 乱数が0.0以上1.0未満の場合
 		if (randomValue < STONE_RANGE) {
+			
 			// プレイヤーの手をグーにする
 			playerHand = HAND_STONE;
 			// プレイヤーの手を表示する
 			System.out.print("グー");
+			
 		// 乱数が1.0以上2.0未満の場合
 		} else if (randomValue < SCISSORS_RANGE) {
+			
 			// プレイヤーの手をチョキにする
 			playerHand = HAND_SCISSORS;
 			// プレイヤーの手を表示する
 			System.out.print("チョキ");
+			
 		// 乱数が2.0以上3.0未満の場合
 		} else if (randomValue < PAPER_RANGE) {
+			
 			// プレイヤーの手をパーにする
 			playerHand = HAND_PAPER;
 			// プレイヤーの手を表示する
 			System.out.print("パー");
+			
 		}
+		
 		// 出す手を返却
 		return playerHand;
 	}
@@ -78,12 +83,16 @@ public class Player {
 	*作成者：N.Kimoto
 	*作成日：2024/06/27
 	*/
-public void notifyResult(boolean playerResult) {
+	public void notifyResult(boolean playerResult) {
+		
 		// プレイヤーが勝った場合
 		if (playerResult == true) {
+			
 			// 勝利数をインクリメントする
 			winCount++;
+			
 		}
+		
 	}
 	
 	/*
@@ -95,8 +104,25 @@ public void notifyResult(boolean playerResult) {
 	*作成日：2024/06/27
 	*/
 	public int getWinCount() {
+		
 		// 勝った回数を返却
 		return winCount;
+		
 	}
 	
+	/*
+	*関数名：getPlayerName
+	*概要：自分の名前を答える
+	*引数：なし
+	*戻り値：自分の名前(String型)
+	*作成者：N.Kimoto
+	*作成日：2024/06/27
+	*/
+	public String getPlayerName() {
+		
+		// 勝った回数を返却
+		return playerName;
+		
+	}
+		
 }
