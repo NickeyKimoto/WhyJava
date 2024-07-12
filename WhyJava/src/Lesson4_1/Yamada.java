@@ -24,7 +24,7 @@ public class Yamada {
 	public static final double PAPER_RANGE = 3.0;
 	
 	// プレイヤーの名前を表すフィールドを宣言
-	private String playerName;
+	private String playerName = null;
 	// プレイヤーの勝利数を表すフィールドを宣言
 	private int winCount = 0;
 	
