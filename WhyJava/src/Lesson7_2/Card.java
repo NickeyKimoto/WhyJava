@@ -21,9 +21,9 @@ public class Card {
 	
 	
 	// スートを表すフィールドを宣言
-	private int cardSuit;
+	private int cardSuit = 0;
 	// カードの示す数を表すフィールドを宣言
-	private int cardNumber;
+	private int cardNumber = 0;
 	
 	/*
 	*コンストラクタ名：Card

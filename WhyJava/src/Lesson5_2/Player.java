@@ -24,11 +24,11 @@ public class Player {
 	public static final double PAPER_RANGE = 3.0;
 	
 	// プレイヤーの名前を表すフィールドを宣言
-	private String playerName;
+	private String playerName = null;
 	// プレイヤーの勝利数を表すフィールドを宣言
 	private int winCount = 0;
 	// 戦略を表すフィールドを宣言
-	private Tactics jankenTactics;
+	private Tactics jankenTactics = null;
 	
 	/*
 	*コンストラクタ名：Player
