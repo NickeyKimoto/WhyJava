@@ -21,7 +21,7 @@ import trump.Table;
 public class FantanPlayer extends Player {
 	
 	// パス回数
-	private int passCount;
+	private int passCount = 0;
 	
 	/*
 	*コンストラクタ名：FantanPlayer

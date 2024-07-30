@@ -9,6 +9,12 @@ import trump.Rule;
 // トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
+/*
+*クラス名：FantanRule
+*概要：七並べのルールを表すクラス
+*作成者：N.Kimoto
+*作成日：2024/07/30
+*/
 public class FantanRule implements Rule {
 	
 	/*
