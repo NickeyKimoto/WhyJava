@@ -64,10 +64,10 @@ public class FantanTable implements Table {
 		StringBuffer numberString = new StringBuffer();
 		
 		// 文字列にそのスートの列のカードを追加
-		for(int i = 0; i < fantanTable.length; i++) {
+		for(int i = 0; i < Card.SUIT_NUMBER; i++) {
 			
 			// 文字列にそのスートの数字のカードを追加
-			for(int j = 0; j < fantanTable[i].length; j++) {
+			for(int j = 0; j < Card.CARD_NUMBER; j++) {
 				
 				// カードが置かれていた場合
 				if (fantanTable[i][j] != null) {

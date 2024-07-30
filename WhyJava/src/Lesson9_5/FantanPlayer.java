@@ -1,6 +1,5 @@
 package Lesson9_5;
 
-import Lesson9_5.FantanMaster;
 // トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
 // トランプゲームワークフレームのマスタークラスをインポート
@@ -21,7 +20,7 @@ import trump.Table;
 public class FantanPlayer extends Player {
 	
 	// パス回数
-	private int passCount;
+	private int passCount = 0;
 	
 	/*
 	*コンストラクタ名：FantanPlayer
@@ -55,7 +54,7 @@ public class FantanPlayer extends Player {
 		// 受け取ったカードの数字が7ではない場合
 		if (playingCard.getCardNumber() != SEVEN_CARD) {
 			// カードを自分の手札に加える
-			myHand.addCard(playingCard);
+			super.receiveCard(playingCard);
 			
 		// 受け取ったカードの数字が7の場合
 		} else {
@@ -92,7 +91,7 @@ public class FantanPlayer extends Player {
 			if (myHand.getNumberOfCards() == 0) {
 				
 				// 上がりを宣言する
-				gameMaster.declareWin(nextPlayer);
+				gameMaster.declareWin(this);
 				
 			}
 			
@@ -106,7 +105,7 @@ public class FantanPlayer extends Player {
 			((FantanMaster)gameMaster).declaerPass(this);
 			
 			// パス回数が上限を超えた場合
-			if (passCount < FantanMaster.PASS_LIMIT) {
+			if (passCount > FantanMaster.PASS_LIMIT) {
 				
 				// 手札の枚数を取得
 				int numberOfHand = myHand.getNumberOfCards();

@@ -54,14 +54,14 @@ public class FantanRule implements Rule {
 			Card[][] checkPlace = gameTable.getCards();
 			
 			// 調査対象のカードの左右どちらかにカードがある場合
-			if (checkPlace[--specifyCardSuit][--rightCardNumber] != null
-					|| checkPlace[--specifyCardSuit][--leftCardNumber] != null) {
+			if (checkPlace[specifyCardSuit-1][rightCardNumber-1] != null
+					|| checkPlace[specifyCardSuit-1][leftCardNumber-1] != null) {
 				// 配列の要素数
 				final int ELEMENT_COUNT = 1;
 				// 返却する配列の要素数を設定
 				placeCard = new Card[ELEMENT_COUNT];
 				// 配列にそのカードを格納
-				placeCard[0] = specifyCard;
+				placeCard[0] = myHand.pickCard(i);
 				
 			}
 			
