@@ -1,5 +1,7 @@
 package Lesson5_1;
 
+import Lesson5_2.CyclicTactics;
+
 /*
 *クラス名：Player
 *概要：ジャンケンのプレーヤーを表すクラス
@@ -24,11 +26,11 @@ public class Player {
 	public static final double PAPER_RANGE = 3.0;
 	
 	// プレイヤーの名前を表すフィールドを宣言
-	private String playerName = null;
+	private String playerName = "プレイヤー";
 	// プレイヤーの勝利数を表すフィールドを宣言
 	private int winCount = 0;
 	// 戦略を表すフィールドを宣言
-	private Tactics jankenTactics = null;
+	private Tactics jankenTactics = new CyclicTactics();
 	
 	/*
 	*コンストラクタ名：Player
