@@ -2,15 +2,15 @@ package Lesson9_6;
 
 // トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
-//トランプゲームワークフレームの手札クラスをインポート
+// トランプゲームワークフレームの手札クラスをインポート
 import trump.Hand;
-//トランプゲームワークフレームの進行役クラスをインポート
+// トランプゲームワークフレームの進行役クラスをインポート
 import trump.Master;
-//トランプゲームワークフレームのプレイヤークラスをインポート
+// トランプゲームワークフレームのプレイヤークラスをインポート
 import trump.Player;
-//トランプゲームワークフレームのルールクラスをインポート
+// トランプゲームワークフレームのルールクラスをインポート
 import trump.Rule;
-//トランプゲームワークフレームのテーブルクラスをインポート
+// トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
 /*
@@ -20,7 +20,7 @@ import trump.Table;
 *作成日：2024/07/03
 */
 public class OldMaidPlayer extends Player {
-	
+
 	/*
 	*コンストラクタ名：OldMaidPlayer
 	*概要：フィールドを初期化する
@@ -31,12 +31,12 @@ public class OldMaidPlayer extends Player {
 	*/
 	public OldMaidPlayer(String playerName, Master gameMaster, Table gameTable,
 			Rule gameRule) {
-		
+
 		// それぞれのフィールドを初期化
-		super (playerName, gameMaster, gameTable, gameRule);
-		
+		super(playerName, gameMaster, gameTable, gameRule);
+
 	}
-	
+
 	/*
 	*関数名：receiveCard
 	*概要：カードを配る
@@ -45,26 +45,25 @@ public class OldMaidPlayer extends Player {
 	*作成者：N.Kimoto
 	*作成日：2024/07/03
 	*/
-	// カードを自分の手札に加え、同じ数のカードがあったら捨てる
 	public void receiveCard(Card PlayingCard) {
-		
+
 		// カードを自分の手札に加える
 		myHand.addCard(PlayingCard);
 		// 今加えたカードと同じカードを探す
 		Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
-		
+
 		// 同じカードの組み合わせが存在した場合
 		if (sameCards != null) {
-			
+
 			// テーブルへカードを捨てたことを表示
 			System.out.print(this + ":");
 			// テーブルへカードを捨てる
 			gameTable.putCard(sameCards);
-			
+
 		}
-		
+
 	}
-	
+
 	/*
 	*関数名：nominatePlayer
 	*概要：順番を指名する
@@ -74,7 +73,7 @@ public class OldMaidPlayer extends Player {
 	*作成日：2024/07/03
 	*/
 	public void nominatePlayer(Player nextPlayer) {
-		
+
 		// 次のプレイヤーに手札を出してもらう
 		Hand nextHand = ((OldMaidPlayer) nextPlayer).showHand();
 		// 相手の手札からカードを一枚引く
@@ -83,36 +82,36 @@ public class OldMaidPlayer extends Player {
 		System.out.println(this + ":" + nextPlayer + "さんから " + pickedCard + "を引きました");
 		// 引いたカードを手札に加える
 		myHand.addCard(pickedCard);
-		
+
 		// 今加えたカードと同じカードを探す
 		Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
-		
+
 		// 同じカードの組み合わせが存在した場合
 		if (sameCards != null) {
-			
+
 			// テーブルへカードを捨てたことを表示
 			System.out.print(this + ":");
 			// テーブルへカードを捨てる
 			gameTable.putCard(sameCards);
-			
+
 			// 手札が0になったかどうか調べる
 			if (myHand.getNumberOfCards() == 0) {
-				
+
 				// 進行役に上がりを宣言する
 				gameMaster.declareWin(this);
-			
+
 			// 手札が残っている場合
 			} else {
-				
+
 				// 現在の手札を表示する
 				System.out.println(this + ":残りの手札は" + myHand + "です");
-				
+
 			}
-			
+
 		}
-		
+
 	}
-	
+
 	/*
 	*関数名：showHand
 	*概要：手札を見せる
@@ -122,26 +121,26 @@ public class OldMaidPlayer extends Player {
 	*作成日：2024/07/03
 	*/
 	public Hand showHand() {
-		
+
 		// 上がれる手札の枚数
 		final int FINISH_HAND_NUMBER = 1;
-		
+
 		// もしこの時点で手札が残り1枚の場合
 		if (myHand.getNumberOfCards() == FINISH_HAND_NUMBER) {
-			
+
 			// 上がりを宣言する
 			gameMaster.declareWin(this);
-			
+
 		}
-		
+
 		// 見せる前にシャッフルする
 		myHand.shuffle();
-		
+
 		// 手札を返却する
 		return myHand;
-		
+
 	}
-	
+
 	/*
 	*関数名：toString
 	*概要：プレイヤーの名前を返す
@@ -151,10 +150,10 @@ public class OldMaidPlayer extends Player {
 	*作成日：2024/07/02
 	*/
 	public String toString() {
-		
+
 		// プレイヤーの名前を返す
 		return myName;
-		
+
 	}
 
 }
