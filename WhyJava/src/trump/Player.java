@@ -7,7 +7,7 @@ package trump;
 *作成日：2024/07/02
 */
 public abstract class Player {
-	
+
 	// テーブルを表すフィールドを宣言
 	protected Table gameTable = null;
 	// 自分の手札を表すフィールドを宣言
@@ -18,7 +18,7 @@ public abstract class Player {
 	protected Master gameMaster = null;
 	// ルールを表すフィールドを宣言
 	protected Rule gameRule = null;
-	
+
 	/*
 	*コンストラクタ名：Player
 	*概要：フィールドを初期化する
@@ -28,7 +28,7 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public Player(String myName, Master gameMaster, Table gameTable, Rule gameRule) {
-		
+
 		// 名前を表すフィールドを初期化
 		this.myName = myName;
 		// 進行役を表すフィールドを初期化
@@ -37,9 +37,9 @@ public abstract class Player {
 		this.gameTable = gameTable;
 		// ルールを表すルールを初期化
 		this.gameRule = gameRule;
-		
+
 	}
-	
+
 	/*
 	*関数名：nominatePlayer
 	*概要：順番を指名する
@@ -49,7 +49,7 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public abstract void nominatePlayer(Player nextPlayer);
-	
+
 	/*
 	*関数名：receiveCard
 	*概要：カードを受け取る
@@ -59,12 +59,12 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public void receiveCard(Card playingCard) {
-		
+
 		// 引いたカードを自分の手札に加える
 		myHand.addCard(playingCard);
-		
+
 	}
-	
+
 	/*
 	*関数名：toString
 	*概要：プレイヤーの名前を返す
@@ -74,10 +74,10 @@ public abstract class Player {
 	*作成日：2024/07/02
 	*/
 	public String toString() {
-		
+
 		// プレイヤーの名前を返す
 		return myName;
-		
+
 	}
 
 }

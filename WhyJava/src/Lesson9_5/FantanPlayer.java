@@ -128,9 +128,6 @@ public class FantanPlayer extends Player {
 
 				}
 
-				// ゲームから抜ける
-				gameMaster.deregisterPlayer(nextPlayer);
-
 			}
 
 		}

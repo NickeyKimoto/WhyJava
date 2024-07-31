@@ -7,7 +7,7 @@ package trump;
 *作成日：2024/07/02
 */
 public class Card {
-	
+
 	// スペードを表す定数
 	public static final int SUIT_SPADE = 1;
 	// ダイヤを表す定数
@@ -20,12 +20,12 @@ public class Card {
 	public static final int SUIT_NUMBER = 4;
 	// 値の数を表す定数
 	public static final int CARD_NUMBER = 13;
-	
+
 	// スートを表すフィールドを宣言
 	protected int cardSuit = 0;
 	// カードの示す数を表すフィールドを宣言
 	protected int cardNumber = 0;
-	
+
 	/*
 	*コンストラクタ名：Card
 	*概要：フィールドを初期化する
@@ -35,14 +35,14 @@ public class Card {
 	*作成日：2024/07/02
 	*/
 	public Card(int cardSuit, int cardNumber) {
-		
+
 		// カードのスートを表すフィールドを初期化
 		this.cardSuit = cardSuit;
 		// カードの数字を表すフィールドを初期化
 		this.cardNumber = cardNumber;
-		
+
 	}
-	
+
 	/*
 	*関数名：getCardNumber
 	*概要：数字を見る
@@ -52,12 +52,12 @@ public class Card {
 	*作成日：2024/07/02
 	*/
 	public int getCardNumber() {
-		
+
 		// カードの数字を返却
 		return cardNumber;
-		
+
 	}
-	
+
 	/*
 	*関数名：getCardSuit
 	*概要：スートを見る
@@ -67,12 +67,12 @@ public class Card {
 	*作成日：2024/07/02
 	*/
 	public int getCardSuit() {
-		
+
 		// カードのスートを返却
 		return cardSuit;
-		
+
 	}
-	
+
 	/*
 	*関数名：toString
 	*概要：カードを文字列で表現する
@@ -82,52 +82,53 @@ public class Card {
 	*作成日：2024/07/02
 	*/
 	public String toString() {
-		
+
 		// 返却する文字列を初期化
 		StringBuffer numberString = new StringBuffer();
-		
+
 		// スートによって代入する文字列を変更
 		switch (cardSuit) {
-		
+
 		// スペードの場合
-		case SUIT_SPADE :
-			
+		case SUIT_SPADE:
+
 			// 文字列にSを追加
 			numberString.append("S");
 			// 次の処理に進む
 			break;
-			
+
 		// ダイヤの場合
-		case SUIT_DIAMOND :
-			
+		case SUIT_DIAMOND:
+
 			// 文字列にDを追加
 			numberString.append("D");
 			// 次の処理に進む
 			break;
-			
+
 		// クラブの場合
-		case SUIT_CLUB :
-			
+		case SUIT_CLUB:
+
 			// 文字列にCを追加
 			numberString.append("C");
 			// 次の処理に進む
 			break;
-			
+
 		// ハートの場合
-		case SUIT_HEART :
-			
+		case SUIT_HEART:
+
 			// 文字列にHを追加
 			numberString.append("H");
 			// 次の処理に進む
 			break;
-			
+
 		// それ以外の場合
-		default :
-			
+		default:
+
 			// 何もせず次の処理に進む
 			break;
+			
 		}
-		
+
 		// カードの数字が1であることを表す定数を宣言
 		final int CARD_NUMBER_ONE = 1;
 		// カードの数字が10であることを表す定数を宣言
@@ -138,62 +139,63 @@ public class Card {
 		final int CARD_NUMBER_TWELVE = 12;
 		// カードの数字が13であることを表す定数を宣言
 		final int CARD_NUMBER_THIRTEEN = 13;
-		
+
 		// 数字によって加える文字列を変更
 		switch (cardNumber) {
-		
+
 		// 数字が1の場合
-		case CARD_NUMBER_ONE :
-			
+		case CARD_NUMBER_ONE:
+
 			// 文字列にAを追加
 			numberString.append("A");
 			// 処理を抜ける
 			break;
-			
+
 		// 数字が10の場合
-		case CARD_NUMBER_TEN :
-			
+		case CARD_NUMBER_TEN:
+
 			// 文字列にTを追加
 			numberString.append("T");
 			// 処理を抜ける
 			break;
-			
+
 		// 数字が11の場合
-		case CARD_NUMBER_EREVEN :
-			
+		case CARD_NUMBER_EREVEN:
+
 			// 文字列にJを追加
 			numberString.append("J");
 			// 処理を抜ける
 			break;
-			
+
 		// 数字が12の場合
-		case CARD_NUMBER_TWELVE :
-			
+		case CARD_NUMBER_TWELVE:
+
 			// 文字列にQを追加
 			numberString.append("Q");
 			// 処理を抜ける
 			break;
-			
+
 		// 数字が13の場合
-		case CARD_NUMBER_THIRTEEN :
-			
+		case CARD_NUMBER_THIRTEEN:
+
 			// 文字列にKを追加
 			numberString.append("K");
 			// 処理を抜ける
 			break;
-			
+
 		// 数字がそれ以外の場合
-		default :
-			
+		default:
+
 			// その数字をそのまま文字列に追加
 			numberString.append(cardNumber);
 			// 処理を抜ける
 			break;
+			
 		}
-		
+
 		// 文字列を返却
 		return numberString.toString();
-		
+
 	}
 
 }

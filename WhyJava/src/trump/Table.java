@@ -7,7 +7,7 @@ package trump;
 *作成日：2024/07/02
 */
 public interface Table {
-	
+
 	/*
 	*関数名：putCard
 	*概要：カードを置く
@@ -17,7 +17,7 @@ public interface Table {
 	*作成日：2024/07/02
 	*/
 	public void putCard(Card[] placeCard);
-	
+
 	/*
 	*関数名：getCards
 	*概要：カードを見る

@@ -7,7 +7,7 @@ package trump;
 *作成日：2024/07/02
 */
 public interface Rule {
-	
+
 	/*
 	*関数名：findCandidate
 	*概要：現在の手札とテーブルから、テーブルに出しうるカードの
