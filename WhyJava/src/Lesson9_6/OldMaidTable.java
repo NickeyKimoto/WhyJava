@@ -44,12 +44,13 @@ public class OldMaidTable implements Table {
 			
 			// 捨てられたカードを表示する
 			System.out.print(discardCard[i] + " ");
-			// 捨てられたカードはリストに追加して保持しておく
-			putCard.add(discardCard);
+
 		}
 		
 		// 捨てたカードを表示
 		System.out.println("を捨てました");
+		// 捨てられたカードはリストに追加して保持しておく
+		putCard.add(discardCard);
 		
 	}
 	

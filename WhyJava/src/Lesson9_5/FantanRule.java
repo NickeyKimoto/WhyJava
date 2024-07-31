@@ -21,7 +21,7 @@ public class FantanRule implements Rule {
 	*関数名：findCandidate
 	*概要：現在の手札とテーブルから、テーブルに出しうるカードの
 	*組み合わせを探す
-	*引数：手札(hand型), 現在のテーブル(table型)
+	*引数：手札(Hand型), 現在のテーブル(Table型)
 	*戻り値：見つかったカードの組み合わせ(Card型配列)
 	*作成者：N.Kimoto
 	*作成日：2024/07/02

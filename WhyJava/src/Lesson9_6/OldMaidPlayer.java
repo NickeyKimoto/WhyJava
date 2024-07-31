@@ -2,10 +2,15 @@ package Lesson9_6;
 
 // トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
+//トランプゲームワークフレームの手札クラスをインポート
 import trump.Hand;
+//トランプゲームワークフレームの進行役クラスをインポート
 import trump.Master;
+//トランプゲームワークフレームのプレイヤークラスをインポート
 import trump.Player;
+//トランプゲームワークフレームのルールクラスをインポート
 import trump.Rule;
+//トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
 /*
@@ -35,20 +40,14 @@ public class OldMaidPlayer extends Player {
 	/*
 	*関数名：receiveCard
 	*概要：カードを配る
-	*引数：受け取った(カード型)
+	*引数：受け取った(Card型)
 	*戻り値：なし
 	*作成者：N.Kimoto
 	*作成日：2024/07/03
 	*/
-	public void receiveCard(Card playingCard) {
-		
-		// 引いたカードを自分の手札に加え、同じ数のカードがあったら捨てる
-		dealCard(playingCard);
-		
-	}
-	
 	// カードを自分の手札に加え、同じ数のカードがあったら捨てる
-	private void dealCard(Card PlayingCard) {
+	public void receiveCard(Card PlayingCard) {
+		
 		// カードを自分の手札に加える
 		myHand.addCard(PlayingCard);
 		// 今加えたカードと同じカードを探す
@@ -56,10 +55,12 @@ public class OldMaidPlayer extends Player {
 		
 		// 同じカードの組み合わせが存在した場合
 		if (sameCards != null) {
+			
 			// テーブルへカードを捨てたことを表示
 			System.out.print(this + ":");
 			// テーブルへカードを捨てる
-			gameRule.findCandidate(myHand, gameTable);
+			gameTable.putCard(sameCards);
+			
 		}
 		
 	}
@@ -80,20 +81,31 @@ public class OldMaidPlayer extends Player {
 		Card pickedCard = nextHand.pickCard(0);
 		// 引いた結果を表示
 		System.out.println(this + ":" + nextPlayer + "さんから " + pickedCard + "を引きました");
+		myHand.addCard(pickedCard);
 		
-		// 手札が0になったかどうか調べる
-		if (myHand.getNumberOfCards() == 0) {
+		// 今加えたカードと同じカードを探す
+		Card[] sameCards = gameRule.findCandidate(myHand, gameTable);
+		
+		// 同じカードの組み合わせが存在した場合
+		if (sameCards != null) {
+			// テーブルへカードを捨てたことを表示
+			System.out.print(this + ":");
+			// テーブルへカードを捨てる
+			gameTable.putCard(sameCards);
 			
-			// 進行役に上がりを宣言する
-			gameMaster.declareWin(this);
-			
-		// 手札が0でない場合
-		} else {
-			
-			// 現在の手札を表示する
-			System.out.println(this + ":残りの手札は" + myHand + "です");
+			// 手札が0になったかどうか調べる
+			if (myHand.getNumberOfCards() == 0) {
+				
+				// 進行役に上がりを宣言する
+				gameMaster.declareWin(this);
+				
+			// 手札が0でない場合
+			}
 			
 		}
+			
+		// 現在の手札を表示する
+		System.out.println(this + ":残りの手札は" + myHand + "です");
 		
 	}
 	

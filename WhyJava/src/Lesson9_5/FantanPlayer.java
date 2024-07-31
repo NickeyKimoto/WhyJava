@@ -2,7 +2,7 @@ package Lesson9_5;
 
 // トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
-// トランプゲームワークフレームのマスタークラスをインポート
+// トランプゲームワークフレームの進行役クラスをインポート
 import trump.Master;
 // トランプゲームワークフレームのプレイヤークラスをインポート
 import trump.Player;
@@ -53,6 +53,7 @@ public class FantanPlayer extends Player {
 		
 		// 受け取ったカードの数字が7ではない場合
 		if (playingCard.getCardNumber() != SEVEN_CARD) {
+			
 			// カードを自分の手札に加える
 			super.receiveCard(playingCard);
 			
@@ -93,6 +94,12 @@ public class FantanPlayer extends Player {
 				
 				// 上がりを宣言する
 				gameMaster.declareWin(this);
+				
+			// 手札がある場合
+			} else {
+				
+				// 現在の手札を表示する
+				System.out.println(this + ":残りの手札は" + myHand + "です");
 				
 			}
 			

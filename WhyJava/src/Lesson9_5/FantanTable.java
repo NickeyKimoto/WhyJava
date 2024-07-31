@@ -33,6 +33,9 @@ public class FantanTable implements Table {
 		
 		// カードを配置する
 		fantanTable[--cardSuit][--cardNumber] = placeCard[0];
+		
+		// 置いたカードを表示する
+		System.out.print(placeCard[0] + "を置きました。\n");
 	}
 	
 	/*
