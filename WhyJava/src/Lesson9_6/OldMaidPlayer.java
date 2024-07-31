@@ -109,6 +109,17 @@ public class OldMaidPlayer extends Player {
 			}
 
 		}
+		
+		// 上がれる手札の枚数
+		final int FINISH_HAND_NUMBER = 0;
+
+		// もしこの時点で手札が残り1枚の場合
+		if (nextHand.getNumberOfCards() == FINISH_HAND_NUMBER) {
+
+			// 上がりを宣言する
+			gameMaster.declareWin(nextPlayer);
+
+		}
 
 	}
 
@@ -121,17 +132,6 @@ public class OldMaidPlayer extends Player {
 	*作成日：2024/07/03
 	*/
 	public Hand showHand() {
-
-		// 上がれる手札の枚数
-		final int FINISH_HAND_NUMBER = 1;
-
-		// もしこの時点で手札が残り1枚の場合
-		if (myHand.getNumberOfCards() == FINISH_HAND_NUMBER) {
-
-			// 上がりを宣言する
-			gameMaster.declareWin(this);
-
-		}
 
 		// 見せる前にシャッフルする
 		myHand.shuffle();
