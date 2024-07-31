@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Hand {
 	
 	// 手札にあるカードを保持するためのリストを表すフィールドを宣言
-	private ArrayList<Card> handCards = new ArrayList<Card>();
+	private ArrayList handCards = new ArrayList();
 	
 	/*
 	*関数名：addCard

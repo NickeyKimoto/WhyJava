@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Master {
 	
 	// ゲームに参加する参加者を保持するためのリストを表すフィールドを宣言
-	private ArrayList<Player> gamePlayers = new ArrayList<Player>();
+	private ArrayList gamePlayers = new ArrayList();
 	
 	/*
 	*関数名：prepareGame
@@ -141,9 +141,9 @@ public class Master {
         if (gamePlayers.size() == STANDARD_DECISION_LOSER) {
         	
         	// ゲームの敗者を初期化
-        	Player loser = (Player)gamePlayers.get(0);
+        	Player loserPlayer = (Player)gamePlayers.get(0);
         	// 敗者を表示
-        	System.out.println("  " + loser + "さんの負けです！");
+        	System.out.println("  " + loserPlayer + "さんの負けです！");
         	
         }
         

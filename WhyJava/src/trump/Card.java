@@ -22,9 +22,9 @@ public class Card {
 	public static final int CARD_NUMBER = 13;
 	
 	// スートを表すフィールドを宣言
-	protected int cardSuit;
+	protected int cardSuit = 0;
 	// カードの示す数を表すフィールドを宣言
-	protected int cardNumber;
+	protected int cardNumber = 0;
 	
 	/*
 	*コンストラクタ名：Card

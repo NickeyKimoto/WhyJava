@@ -9,15 +9,15 @@ package trump;
 public abstract class Player {
 	
 	// テーブルを表すフィールドを宣言
-	protected Table gameTable;
+	protected Table gameTable = null;
 	// 自分の手札を表すフィールドを宣言
 	protected Hand myHand = new Hand();
 	// 名前を表すフィールドを宣言
-	protected String myName;
+	protected String myName = "プレイヤー";
 	// 進行役を表すフィールドを宣言
-	protected Master gameMaster;
+	protected Master gameMaster = null;
 	// ルールを表すフィールドを宣言
-	protected Rule gameRule;
+	protected Rule gameRule = null;
 	
 	/*
 	*コンストラクタ名：Player

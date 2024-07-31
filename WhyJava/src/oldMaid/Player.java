@@ -26,6 +26,7 @@ public class Player {
 		Card pickedCard = nextHand.pickCard();
 		// 引いた結果を表示
 		System.out.println(this + ":" + nextPlayer + "さんから " + pickedCard + "を引きました");
+		dealCard(pickedCard);
 		
 		// 手札が0になったかどうか調べる
 		if (myHand.getNumberOfCards() == 0) {

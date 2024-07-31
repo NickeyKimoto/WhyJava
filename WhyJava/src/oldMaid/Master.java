@@ -40,7 +40,7 @@ public class Master {
 			// 指名するプレイヤーの取得
 			Player nominatePlayer = (Player) gamePlayers.get(playerIndex);
 			// 次のプレイヤーの取得
-			Player nextNominatePlayer = (Player) gamePlayers.get(nextPlayerIndex);
+			Player nextNominatePlayer = (Player) gamePlayers.get(nextPlayerIndex);///////////////////////////
 			
 			// プレイヤーを指名する
 			System.out.println("\n" + nominatePlayer + "さんの番です");

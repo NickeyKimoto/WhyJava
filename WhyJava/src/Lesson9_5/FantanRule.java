@@ -1,10 +1,20 @@
 package Lesson9_5;
 
+//トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
+//トランプゲームワークフレームの手札クラスをインポート
 import trump.Hand;
+//トランプゲームワークフレームのルールクラスをインポート
 import trump.Rule;
+//トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
+/*
+*クラス名：FantanRule
+*概要：七並べのルールを表すクラス
+*作成者：N.Kimoto
+*作成日：2024/07/03
+*/
 public class FantanRule implements Rule {
 	
 	/*
@@ -44,25 +54,28 @@ public class FantanRule implements Rule {
 			final int MAXIMUM_CARD_NUMBER = 13;
 			
 			// 調査対象カードの右隣の数字を初期化
-			int rightCardNumber = (specifyCardNumber == MAXIMUM_CARD_NUMBER) ? 
-					MINIMUM_CARD_NUMBER : specifyCardNumber + SHIFT_RIGHT_NUMBER;
+			int rightCardNumber = (specifyCardNumber != MAXIMUM_CARD_NUMBER) ? 
+					specifyCardNumber + SHIFT_RIGHT_NUMBER : MINIMUM_CARD_NUMBER;
 			// 調査対象カードの左隣の数字を初期化
-			int leftCardNumber = (specifyCardNumber == MINIMUM_CARD_NUMBER) ?
-					MAXIMUM_CARD_NUMBER : specifyCardNumber + SHIFT_LEFT_NUMBER;
+			int leftCardNumber = (specifyCardNumber != MINIMUM_CARD_NUMBER) ?
+					specifyCardNumber + SHIFT_LEFT_NUMBER : MAXIMUM_CARD_NUMBER;
 			
 			// 調査する位置を初期化
 			Card[][] checkPlace = gameTable.getCards();
+			// インデックス番号を指定する定数を宣言
+			final int ADJUST_INDEX = 1;
 			
 			// 調査対象のカードの左右どちらかにカードがある場合
-			if (checkPlace[specifyCardSuit-1][rightCardNumber-1] != null
-					|| checkPlace[specifyCardSuit-1][leftCardNumber-1] != null) {
+			if (checkPlace[specifyCardSuit - ADJUST_INDEX][rightCardNumber - ADJUST_INDEX] != null
+					|| checkPlace[specifyCardSuit - ADJUST_INDEX][leftCardNumber - ADJUST_INDEX] != null) {
 				// 配列の要素数
 				final int ELEMENT_COUNT = 1;
 				// 返却する配列の要素数を設定
 				placeCard = new Card[ELEMENT_COUNT];
 				// 配列にそのカードを格納
 				placeCard[0] = myHand.pickCard(i);
-				
+				// 処理を抜ける
+				break;
 			}
 			
 		}

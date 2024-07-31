@@ -80,12 +80,13 @@ public class FantanPlayer extends Player {
 		
 		// 置くことができるカードを格納する配列を宣言
 		Card[] placeCard = gameRule.findCandidate(myHand, gameTable);
-		
 		// 置けるカードがある場合
 		if (placeCard != null) {
 			
 			// そのカードを置く
 			gameTable.putCard(placeCard);
+			// テーブルを表示する
+			System.out.println(gameTable);
 			
 			// 手札がなくなった場合
 			if (myHand.getNumberOfCards() == 0) {
@@ -109,22 +110,12 @@ public class FantanPlayer extends Player {
 				
 				// 手札の枚数を取得
 				int numberOfHand = myHand.getNumberOfCards();
-				// 置くカードを格納する配列を宣言
-				Card[] loserCard = new Card[numberOfHand];
-				
-				// 配列にカードを代入する
-				for(int i = 0; i < numberOfHand; i++) {
-					
-					// 配列にカードを代入する
-					loserCard[i] = myHand.pickCard(i);
-					
-				}
 				
 				// 全ての手札を置く
 				for(int i = 0; i < numberOfHand; i++) {
 					
 					// 手札を置く
-					gameTable.putCard(loserCard);
+					gameTable.putCard(new Card[] {myHand.pickCard(0)});
 					
 				}
 				
