@@ -1,12 +1,12 @@
 package Lesson9_5;
 
-//トランプゲームワークフレームのカードクラスをインポート
+// トランプゲームワークフレームのカードクラスをインポート
 import trump.Card;
-//トランプゲームワークフレームの手札クラスをインポート
+// トランプゲームワークフレームの手札クラスをインポート
 import trump.Hand;
-//トランプゲームワークフレームのルールクラスをインポート
+// トランプゲームワークフレームのルールクラスをインポート
 import trump.Rule;
-//トランプゲームワークフレームのテーブルクラスをインポート
+// トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
 /*
@@ -16,7 +16,7 @@ import trump.Table;
 *作成日：2024/07/03
 */
 public class FantanRule implements Rule {
-	
+
 	/*
 	*関数名：findCandidate
 	*概要：現在の手札とテーブルから、テーブルに出しうるカードの
@@ -27,23 +27,23 @@ public class FantanRule implements Rule {
 	*作成日：2024/07/02
 	*/
 	public Card[] findCandidate(Hand myHand, Table gameTable) {
-		
+
 		// 返却するカード型配列を初期化(ない場合はNULLを返す)
 		Card[] placeCard = null;
 		// 手札の枚数を取得
 		int numberOfHand = myHand.getNumberOfCards();
-		
+
 		// 枚数分探す
-		for(int i = 0; i < numberOfHand; i++) {
-			
+		for (int i = 0; i < numberOfHand; i++) {
+
 			// 調査対象となるカードを初期化
 			Card specifyCard = myHand.lookCard(i);
-			
+
 			// 調査対象の数字を取得
 			int specifyCardNumber = specifyCard.getCardNumber();
 			// 調査対象のスートを取得
 			int specifyCardSuit = specifyCard.getCardSuit();
-			
+
 			// テーブルに置いたときの右隣のカードの数字にするための定数
 			final int SHIFT_RIGHT_NUMBER = 1;
 			// テーブルに置いたときの左隣のカードの数字にするための定数
@@ -52,19 +52,19 @@ public class FantanRule implements Rule {
 			final int MINIMUM_CARD_NUMBER = 1;
 			// カードの数字の最大値
 			final int MAXIMUM_CARD_NUMBER = 13;
-			
+
 			// 調査対象カードの右隣の数字を初期化
-			int rightCardNumber = (specifyCardNumber != MAXIMUM_CARD_NUMBER) ? 
-					specifyCardNumber + SHIFT_RIGHT_NUMBER : MINIMUM_CARD_NUMBER;
+			int rightCardNumber = (specifyCardNumber != MAXIMUM_CARD_NUMBER) ? specifyCardNumber + SHIFT_RIGHT_NUMBER
+					: MINIMUM_CARD_NUMBER;
 			// 調査対象カードの左隣の数字を初期化
-			int leftCardNumber = (specifyCardNumber != MINIMUM_CARD_NUMBER) ?
-					specifyCardNumber + SHIFT_LEFT_NUMBER : MAXIMUM_CARD_NUMBER;
-			
+			int leftCardNumber = (specifyCardNumber != MINIMUM_CARD_NUMBER) ? specifyCardNumber + SHIFT_LEFT_NUMBER
+					: MAXIMUM_CARD_NUMBER;
+
 			// 調査する位置を初期化
 			Card[][] checkPlace = gameTable.getCards();
 			// インデックス番号を指定する定数を宣言
 			final int ADJUST_INDEX = 1;
-			
+
 			// 調査対象のカードの左右どちらかにカードがある場合
 			if (checkPlace[specifyCardSuit - ADJUST_INDEX][rightCardNumber - ADJUST_INDEX] != null
 					|| checkPlace[specifyCardSuit - ADJUST_INDEX][leftCardNumber - ADJUST_INDEX] != null) {
@@ -77,12 +77,12 @@ public class FantanRule implements Rule {
 				// 処理を抜ける
 				break;
 			}
-			
+
 		}
-		
+
 		// 見つかったカードの組み合わせを返却
 		return placeCard;
-		
+
 	}
 
 }

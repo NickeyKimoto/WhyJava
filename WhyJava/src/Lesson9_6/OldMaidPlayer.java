@@ -81,6 +81,7 @@ public class OldMaidPlayer extends Player {
 		Card pickedCard = nextHand.pickCard(0);
 		// 引いた結果を表示
 		System.out.println(this + ":" + nextPlayer + "さんから " + pickedCard + "を引きました");
+		// 引いたカードを手札に加える
 		myHand.addCard(pickedCard);
 		
 		// 今加えたカードと同じカードを探す
@@ -88,6 +89,7 @@ public class OldMaidPlayer extends Player {
 		
 		// 同じカードの組み合わせが存在した場合
 		if (sameCards != null) {
+			
 			// テーブルへカードを捨てたことを表示
 			System.out.print(this + ":");
 			// テーブルへカードを捨てる
@@ -98,14 +100,16 @@ public class OldMaidPlayer extends Player {
 				
 				// 進行役に上がりを宣言する
 				gameMaster.declareWin(this);
+			
+			// 手札が残っている場合
+			} else {
 				
-			// 手札が0でない場合
+				// 現在の手札を表示する
+				System.out.println(this + ":残りの手札は" + myHand + "です");
+				
 			}
 			
 		}
-			
-		// 現在の手札を表示する
-		System.out.println(this + ":残りの手札は" + myHand + "です");
 		
 	}
 	
@@ -113,7 +117,7 @@ public class OldMaidPlayer extends Player {
 	*関数名：showHand
 	*概要：手札を見せる
 	*引数：なし
-	*戻り値：なし
+	*戻り値：手札(Hand型)
 	*作成者：N.Kimoto
 	*作成日：2024/07/03
 	*/
@@ -135,6 +139,7 @@ public class OldMaidPlayer extends Player {
 		
 		// 手札を返却する
 		return myHand;
+		
 	}
 	
 	/*

@@ -1,16 +1,16 @@
 package Lesson9_5;
 
-//トランプゲームワークフレームの手札クラスをインポート
+// トランプゲームワークフレームの手札クラスをインポート
 import trump.Card;
-//トランプゲームワークフレームのカードクラスをインポート
+// トランプゲームワークフレームのカードクラスをインポート
 import trump.Hand;
-//トランプゲームワークフレームの進行役クラスをインポート
+// トランプゲームワークフレームの進行役クラスをインポート
 import trump.Master;
-//トランプゲームワークフレームのプレイヤークラスをインポート
+// トランプゲームワークフレームのプレイヤークラスをインポート
 import trump.Player;
-//トランプゲームワークフレームのルールクラスをインポート
+// トランプゲームワークフレームのルールクラスをインポート
 import trump.Rule;
-//トランプゲームワークフレームのテーブルクラスをインポート
+// トランプゲームワークフレームのテーブルクラスをインポート
 import trump.Table;
 
 /*
@@ -30,7 +30,7 @@ public class PlayFantan {
 	*作成日：2024/07/03
 	*/
 	public static void main(String[] args) {
-		
+
 		// 進行役の生成
 		Master fantanMaster = new FantanMaster();
 		// テーブルの生成
@@ -57,7 +57,7 @@ public class PlayFantan {
 		fantanMaster.startGame();
 
 	}
-	
+
 	/*
 	*関数名：createTrump
 	*概要：52枚のトランプを生成する
@@ -67,18 +67,17 @@ public class PlayFantan {
 	*作成日：2024/07/03
 	*/
 	private static Hand createTrump() {
-		
+
 		// 生成するカードを初期化
 		Hand playingCards = new Hand();
-		
+
 		// 数字の最小値
 		final int MINIMUM_CARD_NUMBER = 1;
 		// 数字の最大値
 		final int MAXIMUM_CARD_NUMBER = 13;
-		
-		
+
 		// 各スート52枚のカードを生成する
-		for(int i = MINIMUM_CARD_NUMBER; i <= MAXIMUM_CARD_NUMBER; i++) {
+		for (int i = MINIMUM_CARD_NUMBER; i <= MAXIMUM_CARD_NUMBER; i++) {
 			// クラブのカードを生成
 			playingCards.addCard(new Card(Card.SUIT_CLUB, i));
 			// ダイヤのカードを生成
@@ -88,7 +87,7 @@ public class PlayFantan {
 			// スペードのカードを生成
 			playingCards.addCard(new Card(Card.SUIT_SPADE, i));
 		}
-		
+
 		// 生成したカードを返却
 		return playingCards;
 	}

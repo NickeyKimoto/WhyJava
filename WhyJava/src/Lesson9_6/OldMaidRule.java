@@ -37,16 +37,18 @@ public class OldMaidRule implements Rule {
 		// 最後に追加されたカードを取得する
 		int lastIndex = numberOfCards + ADJUST_LAST_CARD;
 		
-		// 最後に追加されたカードと手札を順に照合
-		for (int i = lastIndex; i >= 0; i--) {
+		// 同じ数のカードを探す
+		OUTER : for (int i = lastIndex; i >= 0; i--) {
 			// 手札のカード1枚を初期化
 			Card playingCard = myHand.lookCard(i);
 			
+			// カードを比較する
 			for (int j = i - 1; j >= 0; j--) {
 			
+				// 比較する対象のカードを宣言
 				Card comparisonCard= myHand.lookCard(j);
 				
-				// 最後に追加されたカードと同じカードが見つかった場合
+				// 同じ数のカードが見つかった場合
 				if (playingCard.getCardNumber() == comparisonCard.getCardNumber()) {
 					
 					// 返却する配列の要素数
@@ -60,7 +62,8 @@ public class OldMaidRule implements Rule {
 					discardCard[indexNumber[0]] = myHand.pickCard(i);
 					// 同じ数字を持つカードを返却するカード型配列に格納
 					discardCard[indexNumber[1]] = myHand.pickCard(j);
-					return discardCard;
+					// 探索を終了する
+					break OUTER;
 					
 				}
 			}
